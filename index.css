@@ -1,3 +1,14 @@
+main {
+  background-image: url(https://images.typeform.com/images/6rG9cBdwZsBj/background/large);
+  background-position: center top;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
 .question-container {
   margin-top: 20px;
   display: flex;
@@ -9,7 +20,6 @@
 
   font-size: 24px;
   font-family: Arial, sans-serif;
-  background-color: #421717;
   color: #fff;
   padding: 20px;
   border-radius: 5px;
