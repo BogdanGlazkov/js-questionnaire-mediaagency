@@ -1,33 +1,35 @@
 const questions = [
   {
     question: "Question 1",
-    options: ["Option 1A", "Option 1B"],
   },
   {
     question: "Question 2",
-    options: ["Option 2A", "Option 2B"],
+  },
+  {
+    question: "Question 3",
   },
 ];
 
+const options = ["Agree", "Disagree"];
+
 let currentQuestion = 0;
+
 const questionElement = document.querySelector(".question");
 const answerOptionsElement = document.querySelector(".answer-options");
+const submitButton = document.querySelector(".submit-button");
 
 answerOptionsElement.addEventListener("change", handleAnswerOptionChange);
+submitButton.addEventListener("click", handleSubmit);
 
 function displayQuestion() {
-  // Clear previous question and answer options
   questionElement.textContent = "";
   answerOptionsElement.innerHTML = "";
 
-  // Get the current question object
   const currentQuestionObj = questions[currentQuestion];
 
-  // Display the question
   questionElement.textContent = currentQuestionObj.question;
 
-  // Display the answer options
-  currentQuestionObj.options.forEach((option, index) => {
+  options.forEach((option, index) => {
     const optionId = `option${index + 1}`;
     const optionLabel = document.createElement("label");
     optionLabel.setAttribute("for", optionId);
@@ -37,27 +39,43 @@ function displayQuestion() {
     optionInput.setAttribute("type", "radio");
     optionInput.setAttribute("name", "answer");
     optionInput.setAttribute("id", optionId);
-    optionInput.setAttribute("value", option);
+    optionInput.setAttribute("value", index + 1);
 
-    answerOptionsElement.appendChild(optionInput);
+    if (index === 0) {
+      optionLabel.classList.add("outlined");
+    }
+
     answerOptionsElement.appendChild(optionLabel);
+    answerOptionsElement.appendChild(optionInput);
   });
 }
 
-// Call the function to display the initial question
 displayQuestion();
 
 function handleAnswerOptionChange(event) {
   const selectedOption = event.target.value;
+  console.log(selectedOption);
 
-  // Update the current question based on the selected answer
   if (selectedOption) {
-    // Perform any necessary processing or validation here
-
-    // Increment the current question
+    saveResponse(currentQuestion, selectedOption);
     currentQuestion++;
-
-    // Display the next question
     displayQuestion();
   }
+}
+
+function saveResponse(questionIndex, answer) {
+  const storedResponses =
+    JSON.parse(localStorage.getItem("surveyResponses")) || {};
+  storedResponses[questionIndex] = answer;
+  localStorage.setItem("surveyResponses", JSON.stringify(storedResponses));
+}
+
+function handleSubmit() {
+  if (currentQuestion < questions.length - 1) {
+    handleAnswerOptionChange();
+    return;
+  }
+
+  localStorage.removeItem("surveyResponses");
+  window.location.href = "https://bing.com";
 }

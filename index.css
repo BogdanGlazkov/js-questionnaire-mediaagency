@@ -4,31 +4,64 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 20px;
+  width: 100%;
+  height: 100%;
 
-  font-size: 36px;
+  font-size: 24px;
   font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
+  background-color: #421717;
+  color: #fff;
   padding: 20px;
   border-radius: 5px;
 }
 
 .question {
   margin: 0;
+  margin-bottom: 32px;
 }
 
-#answer-options label {
+.answer-options input {
+  display: none;
+  visibility: hidden;
+}
+
+.answer-options label {
   display: block;
-  margin-bottom: 10px;
+  width: 200px;
+  padding: 8px;
+  border: 2px solid white;
+  border-radius: 8px;
+  background-color: #888;
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+.answer-options label:not(:last-of-type) {
+  margin-bottom: 12px;
+}
+
+.answer-options label:hover,
+.answer-options label:focus {
+  opacity: 0.6;
 }
 
 .submit-button {
   width: 200px;
   font-size: inherit;
-  background-color: #007bff;
+  background-color: orange;
   color: #fff;
+  margin-top: 20px;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.submit-button:hover,
+.submit-button:focus {
+  background-color: rgb(212, 176, 45);
+}
+
+.outlined {
+  outline: 1px solid white;
 }
