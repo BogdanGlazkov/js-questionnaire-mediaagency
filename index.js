@@ -53,12 +53,16 @@ function displayQuestion() {
 displayQuestion();
 
 function handleAnswerOptionChange(event) {
+  if (currentQuestion >= questions.length) return;
+
   const selectedOption = event.target.value;
-  console.log(selectedOption);
 
   if (selectedOption) {
     saveResponse(currentQuestion, selectedOption);
     currentQuestion++;
+  }
+
+  if (currentQuestion < questions.length) {
     displayQuestion();
   }
 }
@@ -76,6 +80,12 @@ function handleSubmit() {
     return;
   }
 
+  const allData = JSON.parse(localStorage.getItem("surveyResponses"));
+  const queryString = Object.entries(allData)
+    .map((item) => `${item[0]}=${item[1]}`)
+    .join("&");
+  const finalUrl = `https://bing.com?${queryString}`;
+
   localStorage.removeItem("surveyResponses");
-  window.location.href = "https://bing.com";
+  window.location.href = finalUrl;
 }
