@@ -42,7 +42,7 @@ main {
   border: 2px solid white;
   border-radius: 8px;
   background-color: #888;
-  opacity: 0.3;
+  opacity: 0.6;
   cursor: pointer;
 }
 
@@ -52,14 +52,15 @@ main {
 
 .answer-options label:hover,
 .answer-options label:focus {
-  opacity: 0.6;
+  opacity: 0.9;
 }
 
 .submit-button {
-  width: 200px;
+  text-transform: uppercase;
   font-size: inherit;
+  font-weight: bold;
   background-color: orange;
-  color: #fff;
+  color: rgb(72, 55, 5);
   margin-top: 20px;
   padding: 10px 20px;
   border: none;
@@ -74,4 +75,9 @@ main {
 
 .outlined {
   outline: 1px solid white;
+}
+
+.check-svg {
+  margin-left: 10px;
+  fill: rgb(72, 55, 5);
 }

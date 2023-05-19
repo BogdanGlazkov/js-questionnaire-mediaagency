@@ -53,7 +53,7 @@ function handleAnswerOptionChange(event) {
   }
 
   if (currentQuestion < questions.length) {
-    displayQuestion();
+    setTimeout(() => displayQuestion(), 800);
   }
 }
 
