@@ -1,14 +1,4 @@
-const questions = [
-  {
-    question: "Question 1",
-  },
-  {
-    question: "Question 2",
-  },
-  {
-    question: "Question 3",
-  },
-];
+import { questions } from "./db.js";
 
 const options = ["Agree", "Disagree"];
 
