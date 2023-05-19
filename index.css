@@ -19,10 +19,12 @@
 
 #answer-options label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .submit-button {
+  width: 200px;
+  font-size: inherit;
   background-color: #007bff;
   color: #fff;
   padding: 10px 20px;
