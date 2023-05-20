@@ -1,3 +1,31 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+h1,
+h2,
+h3,
+p {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 main {
   background-image: url(https://images.typeform.com/images/6rG9cBdwZsBj/background/large);
   background-position: center top;
@@ -7,10 +35,10 @@ main {
   position: absolute;
   top: 0px;
   left: 0px;
+  padding: 40px;
 }
 
 .question-container {
-  margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,8 +69,7 @@ main {
   padding: 8px;
   border: 2px solid white;
   border-radius: 8px;
-  background-color: #888;
-  opacity: 0.6;
+  background-color: rgba(255, 255, 255, 0.2);
   cursor: pointer;
 }
 
@@ -52,7 +79,7 @@ main {
 
 .answer-options label:hover,
 .answer-options label:focus {
-  opacity: 0.9;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .submit-button {
@@ -73,11 +100,27 @@ main {
   background-color: rgb(212, 176, 45);
 }
 
-.outlined {
-  outline: 1px solid white;
-}
-
 .check-svg {
   margin-left: 10px;
   fill: rgb(72, 55, 5);
+}
+
+.substring {
+  margin: auto 0 0 auto;
+  font-size: 14px;
+}
+
+.substring-email {
+  display: block;
+  margin-top: 10px;
+}
+
+.substring-email:hover,
+.substring-email:focus {
+  opacity: 0.6;
+}
+
+.outlined {
+  outline: 1px solid white;
+  background-color: rgba(255, 255, 255, 0.5);
 }

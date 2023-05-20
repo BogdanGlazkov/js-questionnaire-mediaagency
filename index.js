@@ -60,7 +60,7 @@ function handleAnswerOptionChange(event) {
 function saveResponse(questionIndex, answer) {
   const storedResponses =
     JSON.parse(localStorage.getItem("surveyResponses")) || {};
-  storedResponses[questionIndex] = answer;
+  storedResponses[questionIndex + 1] = answer;
   localStorage.setItem("surveyResponses", JSON.stringify(storedResponses));
 }
 
