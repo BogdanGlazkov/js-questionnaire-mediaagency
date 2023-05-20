@@ -54,13 +54,9 @@ main {
 }
 
 .question {
-  margin: 0;
+  display: block;
+  height: 80px;
   margin-bottom: 32px;
-}
-
-.answer-options input {
-  display: none;
-  visibility: hidden;
 }
 
 .answer-options label {
@@ -120,7 +116,18 @@ main {
   opacity: 0.6;
 }
 
+.warning {
+  margin-top: 20px;
+  font-weight: bold;
+  color: red;
+}
+
 .outlined {
-  outline: 1px solid white;
-  background-color: rgba(255, 255, 255, 0.5);
+  outline: 2px solid white;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
 }

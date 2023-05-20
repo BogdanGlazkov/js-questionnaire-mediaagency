@@ -7,6 +7,7 @@ let currentQuestion = 0;
 const questionElement = document.querySelector(".question");
 const answerOptionsElement = document.querySelector(".answer-options");
 const submitButton = document.querySelector(".submit-button");
+const submitWarning = document.querySelector(".warning");
 
 answerOptionsElement.addEventListener("change", handleAnswerOptionChange);
 submitButton.addEventListener("click", handleSubmit);
@@ -23,6 +24,7 @@ function displayQuestion() {
     const optionId = `option${index + 1}`;
     const optionLabel = document.createElement("label");
     optionLabel.setAttribute("for", optionId);
+    optionLabel.setAttribute("id", index + 1);
     optionLabel.textContent = option;
 
     const optionInput = document.createElement("input");
@@ -30,10 +32,7 @@ function displayQuestion() {
     optionInput.setAttribute("name", "answer");
     optionInput.setAttribute("id", optionId);
     optionInput.setAttribute("value", index + 1);
-
-    if (index === 0) {
-      optionLabel.classList.add("outlined");
-    }
+    optionInput.classList.add("hidden");
 
     answerOptionsElement.appendChild(optionLabel);
     answerOptionsElement.appendChild(optionInput);
@@ -52,8 +51,14 @@ function handleAnswerOptionChange(event) {
     currentQuestion++;
   }
 
+  const selectedLabel = document.getElementById(event.target.value);
+  selectedLabel.classList.add("outlined");
+
   if (currentQuestion < questions.length) {
-    setTimeout(() => displayQuestion(), 800);
+    setTimeout(() => {
+      selectedLabel.classList.remove("outlined");
+      displayQuestion();
+    }, 800);
   }
 }
 
@@ -66,7 +71,10 @@ function saveResponse(questionIndex, answer) {
 
 function handleSubmit() {
   if (currentQuestion < questions.length - 1) {
-    handleAnswerOptionChange();
+    submitWarning.classList.remove("hidden");
+    setTimeout(() => {
+      submitWarning.classList.add("hidden");
+    }, 3000);
     return;
   }
 
